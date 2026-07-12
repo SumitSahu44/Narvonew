@@ -11,21 +11,24 @@ const testimonials = [
     role: "Lead Architect, Studio Form",
     quote: "NARVO's hardware solutions completely redefined the entryways of our premium seaside villa project. The solid-brass tactile feel and precise engineering are unmatched.",
     stars: 5,
-    location: "Mumbai"
+    location: "Mumbai",
+    avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=150&h=150"
   },
   {
     name: "Sanjay Malhotra",
     role: "Principal Designer, Malhotra & Co",
     quote: "We specify NARVO for all our luxury projects. From magnetic locks to premium veneers, the detailing and structural craftsmanship are exemplary and highly recommended.",
     stars: 5,
-    location: "New Delhi"
+    location: "New Delhi",
+    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=150&h=150"
   },
   {
     name: "Kabir Mehta",
     role: "Interior Designer, Atelier Mehta",
     quote: "Their modular fittings and drawer slides are absolute works of art. Seamless movement, silent closes, and incredible aesthetic elegance. A game-changer for high-end kitchens.",
     stars: 5,
-    location: "Bengaluru"
+    location: "Bengaluru",
+    avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=150&h=150"
   }
 ];
 
@@ -84,7 +87,14 @@ export default function Testimonials() {
               </p>
 
               {/* Author Metadata */}
-              <div className="flex flex-col">
+              <div className="flex flex-col items-center">
+                <div className="relative w-16 h-16 rounded-full overflow-hidden border-2 border-primary/30 shadow-lg mb-4">
+                  <img
+                    src={testimonials[active].avatar}
+                    alt={testimonials[active].name}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
                 <span className="text-sm font-sans font-bold text-secondary">
                   {testimonials[active].name}
                 </span>

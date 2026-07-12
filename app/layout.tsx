@@ -5,7 +5,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SmoothScroll from "@/components/SmoothScroll";
 import CustomCursor from "@/components/CustomCursor";
-import WhatsAppButton from "@/components/WhatsAppButton";
+import Chatbot from "@/components/Chatbot";
 
 const plusJakarta = Plus_Jakarta_Sans({
   variable: "--font-plus-jakarta",
@@ -38,7 +38,7 @@ export default function RootLayout({
         {/* Smooth scroll and cursor container */}
         <SmoothScroll>
           <CustomCursor />
-          <WhatsAppButton />
+          <Chatbot />
           <Navbar />
           <main className="min-h-screen">
             {children}

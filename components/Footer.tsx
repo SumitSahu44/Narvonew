@@ -19,7 +19,7 @@ const footerLinks = {
     { name: "Our Stores", href: "#stores" },
     { name: "Sustainability", href: "#sustainability" },
     { name: "Careers", href: "#careers" },
-    { name: "Contact Us", href: "#contact" },
+    { name: "Contact Us", href: "/contact" },
   ],
   support: [
     { name: "Help Center", href: "#help" },
@@ -169,33 +169,7 @@ export default function Footer() {
               </div>
             </div>
 
-            {/* Newsletter Subscription Area */}
-            <div className="flex flex-col gap-5 border-t border-white/5 pt-8">
-              <h4 className="text-sm font-sans font-bold uppercase tracking-wider text-white/95">
-                Subscribe to Our Newsletter
-              </h4>
-              <p className="text-sm font-sans text-white/60 leading-relaxed max-w-md">
-                Stay updated with our latest textile & hardware collections, designer launches, and luxury trends.
-              </p>
-              <form
-                onSubmit={(e) => e.preventDefault()}
-                className="relative flex items-center border-b border-white/20 focus-within:border-primary transition-colors duration-300 pb-2.5 max-w-md"
-              >
-                <input
-                  type="email"
-                  placeholder="Enter your email address"
-                  className="bg-transparent text-sm placeholder-white/30 text-white focus:outline-none w-full pr-10 py-1"
-                  required
-                />
-                <button
-                  type="submit"
-                  className="absolute right-0 bg-primary hover:bg-[#b57a22] text-white p-2 rounded-full transition-all duration-300"
-                  aria-label="Subscribe"
-                >
-                  <ArrowUpRight className="w-3.5 h-3.5" />
-                </button>
-              </form>
-            </div>
+
           </div>
         </div>
 

@@ -14,7 +14,7 @@ const navLinks = [
   { name: "Solutions", href: "/#solutions" },
   { name: "Inspiration", href: "/#inspiration" },
   { name: "About Us", href: "/#about" },
-  { name: "Contact", href: "/#contact" },
+  { name: "Contact", href: "/contact" },
 ];
 
 const searchableProducts = [
@@ -119,7 +119,7 @@ export default function Navbar() {
             {/* Magnetic CTA Button */}
             <Magnetic>
               <Link
-                href="/#contact"
+                href="/contact"
                 className="px-6 py-3 bg-primary hover:bg-[#b57a22] text-white text-sm font-sans font-semibold tracking-wider rounded-full shadow-gold-glow transition-all duration-300 transform active:scale-95"
               >
                 Get in Touch
@@ -273,7 +273,7 @@ export default function Navbar() {
             >
               <div className="border-t border-border-custom pt-6 flex flex-col gap-4">
                 <Link
-                  href="/#contact"
+                  href="/contact"
                   onClick={() => setMobileMenuOpen(false)}
                   className="w-full py-4 bg-primary text-white text-center text-sm font-semibold tracking-wider rounded-full shadow-lg"
                 >

@@ -36,7 +36,7 @@ export default function CtaBanner() {
             <div className="relative z-10 flex-shrink-0 flex items-center justify-start md:justify-end">
               <Magnetic>
                 <Link
-                  href="#contact-form"
+                  href="/contact"
                   className="group px-8 py-5 bg-primary hover:bg-[#b57a22] text-white text-sm font-sans font-bold tracking-widest rounded-full shadow-gold-glow flex items-center gap-3 transition-all duration-300 transform active:scale-95"
                 >
                   LET'S CONNECT

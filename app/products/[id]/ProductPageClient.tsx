@@ -17,6 +17,54 @@ interface Product {
   specs: { [key: string]: string };
 }
 
+const productReviews: {
+  [productId: string]: {
+    name: string;
+    role: string;
+    company: string;
+    quote: string;
+    rating: number;
+    avatar: string;
+  }[];
+} = {
+  "slimline-hinge": [
+    {
+      name: "Vikram Rathore",
+      role: "Founder & Chief Architect",
+      company: "Rathore & Associates",
+      quote: "NARVO's hydraulic hinges are outstanding. They have a completely silent close and their 15-degree adjustability is a lifesaver when working with thick luxury cabinet doors.",
+      rating: 5,
+      avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=120&h=120"
+    },
+    {
+      name: "Neha Sharma",
+      role: "Lead Interior Designer",
+      company: "Vivid Spaces Studio",
+      quote: "Excellent load-bearing stability. These hinges have become our default choice for all residential and modular wardrobe projects.",
+      rating: 5,
+      avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=120&h=120"
+    }
+  ],
+  "drawer-channel": [
+    {
+      name: "Amit Patel",
+      role: "Production Head",
+      company: "Patel Woodcrafts",
+      quote: "These heavy-duty drawer slides slide like butter, even under maximum capacity load. The double-spring hydraulic dampening mechanism works flawlessly.",
+      rating: 5,
+      avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=120&h=120"
+    },
+    {
+      name: "Rohan Varma",
+      role: "Kitchen Contractor",
+      company: "Smart Kitchens Co.",
+      quote: "Our clients love the soft-closing experience. The cold-rolled steel builds are highly durable and easy to mount. Highly recommended for commercial installations.",
+      rating: 5,
+      avatar: "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&q=80&w=120&h=120"
+    }
+  ]
+};
+
 export default function ProductPageClient({ product }: { product: Product }) {
   const [activeImageIdx, setActiveImageIdx] = useState(0);
   const [formData, setFormData] = useState({
@@ -227,6 +275,52 @@ export default function ProductPageClient({ product }: { product: Product }) {
               >
                 <span className="font-sans font-bold text-secondary">{key}</span>
                 <span className="font-sans text-text-custom/80">{val}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Customer Reviews Section */}
+        <div className="flex flex-col gap-8 border-t border-border-custom pt-12 mt-6">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div>
+              <h2 className="text-xl font-heading font-extrabold text-secondary tracking-wide">
+                B2B Client Reviews
+              </h2>
+              <p className="text-xs text-text-custom/50 font-sans mt-1">
+                Feedback from verified builders, interior designers, and architects
+              </p>
+            </div>
+            {/* Average Rating indicator */}
+            <div className="flex items-center gap-2 bg-[#FBF8F3] border border-primary/20 px-4 py-2 rounded-xl">
+              <span className="text-sm font-bold text-secondary font-sans">4.9 / 5</span>
+              <div className="flex text-primary">
+                {[...Array(5)].map((_, i) => (
+                  <span key={i} className="text-xs">★</span>
+                ))}
+              </div>
+              <span className="text-[10px] text-text-custom/50 font-sans font-medium">(18 Reviews)</span>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {(productReviews[product.id] || []).map((review, idx) => (
+              <div key={idx} className="bg-lightgray p-6 rounded-2xl border border-border-custom flex flex-col justify-between gap-4">
+                <p className="text-xs sm:text-sm font-sans text-secondary italic leading-relaxed">
+                  "{review.quote}"
+                </p>
+                
+                <div className="flex items-center gap-3 border-t border-border-custom/50 pt-4 mt-2">
+                  <img
+                    src={review.avatar}
+                    alt={review.name}
+                    className="w-10 h-10 rounded-full object-cover border border-primary/30"
+                  />
+                  <div className="flex flex-col font-sans">
+                    <span className="text-xs font-bold text-secondary">{review.name}</span>
+                    <span className="text-[10px] text-text-custom/50 mt-0.5">{review.role} • {review.company}</span>
+                  </div>
+                </div>
               </div>
             ))}
           </div>
