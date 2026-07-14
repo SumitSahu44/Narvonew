@@ -8,17 +8,17 @@ import Magnetic from "./Magnetic";
 
 const footerLinks = {
   products: [
-    { name: "Plywood & Board", href: "#products" },
-    { name: "Doors", href: "#products" },
-    { name: "Hardware", href: "#products" },
-    { name: "Decorative Veneers", href: "#products" },
-    { name: "Modular Solutions", href: "#products" },
+    { name: "Plywood & Board", href: "/products" },
+    { name: "Doors", href: "/products" },
+    { name: "Hardware", href: "/products" },
+    { name: "Decorative Veneers", href: "/products" },
+    { name: "Modular Solutions", href: "/products" },
   ],
   company: [
-    { name: "About Us", href: "#about" },
-    { name: "Our Stores", href: "#stores" },
-    { name: "Sustainability", href: "#sustainability" },
-    { name: "Careers", href: "#careers" },
+    { name: "About Us", href: "/about" },
+    { name: "Our Stores", href: "/about#stores" },
+    { name: "Sustainability", href: "/about#sustainability" },
+    { name: "Careers", href: "/about#careers" },
     { name: "Contact Us", href: "/contact" },
   ],
   support: [

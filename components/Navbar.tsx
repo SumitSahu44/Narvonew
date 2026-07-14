@@ -10,10 +10,10 @@ import { useRouter } from "next/navigation";
 
 const navLinks = [
   { name: "Home", href: "/" },
-  { name: "Products", href: "/#products" },
-  { name: "Solutions", href: "/#solutions" },
-  { name: "Inspiration", href: "/#inspiration" },
-  { name: "About Us", href: "/#about" },
+  { name: "Products", href: "/products" },
+  { name: "Solutions", href: "/solutions" },
+  { name: "Inspiration", href: "/inspiration" },
+  { name: "About Us", href: "/about" },
   { name: "Contact", href: "/contact" },
 ];
 

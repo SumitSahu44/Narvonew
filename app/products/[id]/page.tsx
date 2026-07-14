@@ -98,7 +98,7 @@ export default async function ProductPage({ params }: PageProps) {
         <div className="flex items-center gap-2.5 text-xs font-sans text-text-custom/50 mb-10">
           <Link href="/" className="hover:text-primary transition-colors">Home</Link>
           <span>/</span>
-          <Link href="/#products" className="hover:text-primary transition-colors">Products</Link>
+          <Link href="/products" className="hover:text-primary transition-colors">Products</Link>
           <span>/</span>
           <span className="text-secondary font-semibold">{product.category}</span>
         </div>
