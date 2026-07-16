@@ -9,24 +9,15 @@ import Magnetic from "./Magnetic";
 const footerLinks = {
   products: [
     { name: "Plywood & Board", href: "/products" },
-    { name: "Doors", href: "/products" },
     { name: "Hardware", href: "/products" },
-    { name: "Decorative Veneers", href: "/products" },
-    { name: "Modular Solutions", href: "/products" },
   ],
-  company: [
+  quickLinks: [
+    { name: "Home", href: "/" },
     { name: "About Us", href: "/about" },
-    { name: "Our Stores", href: "/about#stores" },
-    { name: "Sustainability", href: "/about#sustainability" },
-    { name: "Careers", href: "/about#careers" },
+    { name: "Products", href: "/products" },
+    { name: "Solutions", href: "/solutions" },
+    { name: "Inspiration", href: "/inspiration" },
     { name: "Contact Us", href: "/contact" },
-  ],
-  support: [
-    { name: "Help Center", href: "#help" },
-    { name: "Track Order", href: "#track" },
-    { name: "Returns & Refunds", href: "#returns" },
-    { name: "Terms & Conditions", href: "#terms" },
-    { name: "Privacy Policy", href: "#privacy" },
   ],
 };
 
@@ -43,49 +34,28 @@ export default function Footer() {
   };
 
   return (
-    <footer className="relative bg-secondary text-white pt-24 pb-10 border-t border-white/5 overflow-hidden">
+    <footer className="relative bg-secondary text-white pt-24 pb-10 border-t border-white/5 overflow-hidden px-6 md:px-12 lg:px-24">
       {/* Background Subtle mesh glow */}
       <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-[radial-gradient(circle_at_bottom_right,rgba(199,139,43,0.06),transparent_55%)] pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
-        {/* Main Columns Grid - 2 columns on desktop */}
+      <div className="max-w-7xl mx-auto relative z-10">
+        {/* Main Columns Grid - 3 columns on desktop */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 pb-16">
-          {/* Column 1: Brand & Contact Details (5 cols width on large screens) */}
-          <div className="lg:col-span-5 flex flex-col gap-6">
+          {/* Column 1: Brand & Logo (4 cols) */}
+          <div className="lg:col-span-4 flex flex-col gap-6">
             <Link href="/" className="inline-block">
               <div className="relative h-14 w-56 transition-transform duration-300 hover:scale-103">
                 <Image
                   src="/narvo-transparent.png"
                   alt="NARVO Textile & Hardware"
                   fill
-                  className="object-contain brightness-0 invert"
+                  className="object-contain object-left brightness-0 invert"
                 />
               </div>
             </Link>
             <p className="text-white/60 text-sm font-sans leading-relaxed">
               Delivering premium textile and hardware solutions that blend quality, design, and sustainability for luxury spaces.
             </p>
-
-            {/* Address and Contact details from user card */}
-            <div className="flex flex-col gap-4 border-y border-white/5 py-6 my-2">
-              <div className="flex items-start gap-3">
-                <MapPin className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                <div className="text-sm text-white/70 leading-relaxed font-sans">
-                  <p className="font-semibold text-white mb-0.5">Address</p>
-                  <p>A-1, Basement, Triveni Nagar Mod,</p>
-                  <p>Gopalpura Bypass, Jaipur, Rajasthan - 302018</p>
-                </div>
-              </div>
-              <div className="flex items-center gap-3">
-                <Phone className="w-5 h-5 text-primary flex-shrink-0" />
-                <div className="text-sm text-white/70 font-sans">
-                  <p className="font-semibold text-white mb-0.5">Phone</p>
-                  <a href="tel:+918875341190" className="hover:text-primary transition-colors font-medium">
-                    +91 8875341190
-                  </a>
-                </div>
-              </div>
-            </div>
 
             {/* Socials */}
             <div className="flex items-center gap-3">
@@ -107,10 +77,10 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Column 2: Sub-grid for Links and Newsletter (7 cols width on large screens) */}
-          <div className="lg:col-span-7 flex flex-col justify-between gap-12">
+          {/* Column 2: Links (5 cols) */}
+          <div className="lg:col-span-5 flex flex-col justify-start gap-12">
             {/* Quick Links Sub-grid */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-8">
+            <div className="grid grid-cols-2 gap-8">
               {/* Products */}
               <div className="flex flex-col gap-5">
                 <h4 className="text-sm font-sans font-bold uppercase tracking-wider text-white/95">
@@ -130,32 +100,13 @@ export default function Footer() {
                 </ul>
               </div>
 
-              {/* Company */}
+              {/* Quick Links */}
               <div className="flex flex-col gap-5">
                 <h4 className="text-sm font-sans font-bold uppercase tracking-wider text-white/95">
-                  Company
+                  Quick Links
                 </h4>
                 <ul className="flex flex-col gap-3.5">
-                  {footerLinks.company.map((link) => (
-                    <li key={link.name}>
-                      <Link
-                        href={link.href}
-                        className="text-sm font-sans text-white/50 hover:text-primary transition-colors duration-300"
-                      >
-                        {link.name}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* Support */}
-              <div className="flex flex-col gap-5 col-span-2 sm:col-span-1">
-                <h4 className="text-sm font-sans font-bold uppercase tracking-wider text-white/95">
-                  Support
-                </h4>
-                <ul className="flex flex-col gap-3.5">
-                  {footerLinks.support.map((link) => (
+                  {footerLinks.quickLinks.map((link) => (
                     <li key={link.name}>
                       <Link
                         href={link.href}
@@ -168,8 +119,33 @@ export default function Footer() {
                 </ul>
               </div>
             </div>
+          </div>
 
-
+          {/* Column 3: Contact & Address details on far right (3 cols) */}
+          <div className="lg:col-span-3 flex flex-col gap-5">
+            <h4 className="text-sm font-sans font-bold uppercase tracking-wider text-white/95">
+              Contact Details
+            </h4>
+            <div className="flex flex-col gap-5 font-sans text-sm text-white/70">
+              <div className="flex items-start gap-3">
+                <MapPin className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                <div>
+                  <p className="font-semibold text-white mb-0.5">Address</p>
+                  <p>A-1, Basement, Triveni Nagar Mod,</p>
+                  <p>Gopalpura Bypass, Jaipur,</p>
+                  <p>Rajasthan - 302018</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-3">
+                <Phone className="w-5 h-5 text-primary flex-shrink-0" />
+                <div>
+                  <p className="font-semibold text-white mb-0.5">Phone</p>
+                  <a href="tel:+918875341190" className="hover:text-primary transition-colors font-medium">
+                    +91 8875341190
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 

@@ -10,7 +10,7 @@ import Reveal from "@/components/Reveal";
 interface Product {
   id: string;
   name: string;
-  price: string;
+  price?: string;
   category: string;
   description: string;
   images: string[];
@@ -42,7 +42,7 @@ const productsData: Product[] = [
   {
     id: "drawer-channel",
     name: "Self Closing 20inch Sliding Drawer Channel",
-    price: "₹ 36 / Inch",
+    // price: "₹ 36 / Inch",
     category: "Drawer Channels",
     description: "Heavy-duty 20-inch self-closing sliding drawer runners. Engineered with premium cold rolled steel, integrated double-spring hydraulic dampening for silent closing, and dual-direction steel ball bearings for smooth cabinet operations.",
     images: [
@@ -80,7 +80,7 @@ export default function InteractiveShowcase() {
   };
 
   const getWhatsAppLink = (product: Product) => {
-    const text = `Hi NARVO Textile & Hardware, I want to enquire about the B2B product: "${product.name}" priced at ${product.price}. Please share wholesale catalogs, lead times, and shipping terms.`;
+    const text = `Hi NARVO Textile & Hardware, I want to enquire about the B2B product: "${product.name}". Please share wholesale catalogs, lead times, and shipping terms.`;
     return `https://wa.me/918875341190?text=${encodeURIComponent(text)}`;
   };
 
@@ -97,11 +97,11 @@ export default function InteractiveShowcase() {
     const diff = clientX - dragStart.current;
 
     // Shift images every 20px of drag drag movement
-    const threshold = 25; 
+    const threshold = 25;
     if (Math.abs(diff) > threshold) {
       const steps = Math.floor(diff / threshold);
       const totalImages = selectedProduct.images.length;
-      
+
       // Calculate new image index cyclicly
       setImageIndex((prev) => {
         let nextIndex = (prev - steps) % totalImages;
@@ -121,7 +121,7 @@ export default function InteractiveShowcase() {
       <div className="absolute inset-0 grid-bg opacity-[0.03] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto relative z-10">
-        
+
         {/* Header Block */}
         <div className="flex flex-col items-center text-center mb-20 max-w-xl mx-auto">
           <span className="text-xs font-sans font-bold uppercase tracking-widest text-primary mb-2.5 inline-block">
@@ -137,7 +137,7 @@ export default function InteractiveShowcase() {
 
         {/* 2-Column Showcase Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-stretch">
-          
+
           {/* Left Column: Interactive Cabinet Mockup (lg:col-span-5) */}
           <div className="lg:col-span-5 flex flex-col items-center justify-center bg-lightgray rounded-[36px] border border-border-custom p-8 md:p-12 relative min-h-[500px]">
             {/* The 3D Perspective Cabinet Box - Matte Charcoal Exterior */}
@@ -173,7 +173,7 @@ export default function InteractiveShowcase() {
                   <div className="w-full h-full bg-[#24272b] border border-[#17191b] rounded-sm relative flex items-center justify-end pr-3">
                     {/* Charcoal texture lines */}
                     <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:100%_8px] rounded-sm pointer-events-none opacity-40" />
-                    
+
                     {/* Click indicator badge */}
                     {!doorOpen && (
                       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
@@ -226,7 +226,7 @@ export default function InteractiveShowcase() {
                 >
                   {/* Textures lines */}
                   <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.01)_1px,transparent_1px)] bg-[size:100%_12px] rounded-b-xl pointer-events-none opacity-30" />
-                  
+
                   {/* Click indicator badge */}
                   {!drawerOpen && (
                     <div className="absolute top-4 pointer-events-none">
@@ -289,7 +289,7 @@ export default function InteractiveShowcase() {
                   </div>
 
                   {/* 360 Rotation View Card */}
-                  <div 
+                  <div
                     onMouseDown={handleDragStart}
                     onMouseMove={handleDragMove}
                     onMouseUp={handleDragEnd}
@@ -321,9 +321,8 @@ export default function InteractiveShowcase() {
                       {selectedProduct.images.map((_, idx) => (
                         <div
                           key={idx}
-                          className={`w-1.5 h-1.5 rounded-full transition-all ${
-                            imageIndex === idx ? "bg-primary scale-110" : "bg-white/30"
-                          }`}
+                          className={`w-1.5 h-1.5 rounded-full transition-all ${imageIndex === idx ? "bg-primary scale-110" : "bg-white/30"
+                            }`}
                         />
                       ))}
                     </div>
@@ -331,11 +330,11 @@ export default function InteractiveShowcase() {
 
                   {/* Pricing / Details */}
                   <div className="flex items-center gap-3">
-                    <span className="text-2xl font-heading font-extrabold text-primary">
-                      {selectedProduct.price}
+                    <span className="text-sm font-sans font-bold bg-primary/10 text-primary px-3 py-1.5 rounded-full uppercase tracking-wider">
+                      Price on Request
                     </span>
-                    <span className="text-[9px] font-sans font-bold bg-[#E8F8EE] text-[#25D366] px-2.5 py-1 rounded-full uppercase tracking-wider">
-                      B2B WHOLESALE RATE
+                    <span className="text-[10px] font-sans font-bold bg-secondary/5 text-secondary px-2.5 py-1 rounded-full uppercase tracking-wider">
+                      B2B Only
                     </span>
                   </div>
 

@@ -60,9 +60,9 @@ const features = [
 export default function Categories() {
   return (
     <section id="solutions" className="relative py-24 bg-white overflow-hidden px-6 md:px-12 lg:px-24">
-      {/* Background Section Index "01" */}
+      {/* Background Section Index "03" */}
       <div className="absolute left-6 top-10 text-[12rem] md:text-[16rem] font-heading font-extrabold text-[#F8F8F8] select-none pointer-events-none leading-none z-0">
-        01
+        03
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">

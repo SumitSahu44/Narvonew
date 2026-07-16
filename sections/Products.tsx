@@ -71,7 +71,7 @@ export default function Products({ isSubPage = false }: { isSubPage?: boolean })
   };
 
   const getWhatsAppLink = (product: Product) => {
-    const text = `Hi NARVO Textile & Hardware, I want to enquire about the B2B product: "${product.name}" priced at ${product.price}. Please share wholesale catalogs, lead times, and shipping terms.`;
+    const text = `Hi NARVO Textile & Hardware, I want to enquire about the B2B product: "${product.name}". Please share wholesale catalogs, lead times, and shipping terms.`;
     return `https://wa.me/918875341190?text=${encodeURIComponent(text)}`;
   };
 
@@ -172,11 +172,11 @@ export default function Products({ isSubPage = false }: { isSubPage?: boolean })
                       </div>
                       
                       <div className="flex items-center gap-3">
-                        <span className="text-2xl font-heading font-extrabold text-primary">
-                          {product.price}
+                        <span className="text-sm font-sans font-bold bg-primary/10 text-primary px-3 py-1.5 rounded-full uppercase tracking-wider">
+                          Price on Request
                         </span>
-                        <span className="text-[10px] font-sans font-bold bg-[#E8F8EE] text-[#25D366] px-2.5 py-1 rounded-full uppercase tracking-wider">
-                          Wholesale Price
+                        <span className="text-[10px] font-sans font-bold bg-secondary/5 text-secondary px-2.5 py-1 rounded-full uppercase tracking-wider">
+                          B2B Only
                         </span>
                       </div>
 

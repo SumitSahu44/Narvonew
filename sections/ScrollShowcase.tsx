@@ -95,13 +95,13 @@ export default function ScrollShowcase() {
     <div ref={containerRef} className="relative h-[320vh] bg-[#111111] overflow-visible">
       {/* Sticky viewport content box */}
       <div className="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden px-6 md:px-12 lg:px-24 pt-[70px] lg:pt-0 pb-4 lg:pb-0">
-        
+
         {/* Background grids */}
         <div className="absolute inset-0 grid-bg opacity-10 pointer-events-none" />
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[300px] sm:w-[600px] h-[300px] sm:h-[600px] bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
 
         <div className="max-w-7xl mx-auto w-full h-[calc(100vh-110px)] lg:h-auto flex flex-col lg:flex-row items-center justify-center lg:justify-between gap-4 lg:gap-8 z-10 relative">
-          
+
           {/* LEFT SIDE: Dynamic Text Overlays (Preventing Overlaps) */}
           <div className="w-full lg:w-[45%] flex flex-col justify-center h-auto min-h-[110px] sm:min-h-[150px] lg:h-[400px] relative z-20">
             <AnimatePresence mode="wait">
@@ -117,11 +117,11 @@ export default function ScrollShowcase() {
                   <ActiveIcon className="w-4 h-4 text-primary" />
                   {slides[activeSlide].tag}
                 </span>
-                
+
                 <h3 className="text-xl xs:text-2xl sm:text-3xl lg:text-5xl font-heading font-extrabold tracking-tight leading-[1.15]">
                   {slides[activeSlide].title}
                 </h3>
-                
+
                 <p className="text-[11px] xs:text-xs lg:text-sm font-sans text-white/50 leading-relaxed max-w-md">
                   {slides[activeSlide].desc}
                 </p>
@@ -152,9 +152,8 @@ export default function ScrollShowcase() {
               {slides.map((_, idx) => (
                 <div
                   key={idx}
-                  className={`h-1.5 rounded-full transition-all duration-350 ${
-                    activeSlide === idx ? "w-6 bg-primary" : "w-1.5 bg-white/20"
-                  }`}
+                  className={`h-1.5 rounded-full transition-all duration-350 ${activeSlide === idx ? "w-6 bg-primary" : "w-1.5 bg-white/20"
+                    }`}
                 />
               ))}
             </div>
@@ -162,19 +161,19 @@ export default function ScrollShowcase() {
 
           {/* RIGHT SIDE: 3D Perspective Cabinet Door Swing */}
           <div className="w-full lg:w-[50%] flex items-center justify-center relative z-10 py-2 sm:py-6">
-            
+
             {/* Viewport guide circles */}
             <div className="absolute w-[180px] h-[180px] sm:w-[360px] sm:h-[360px] border border-white/5 rounded-full pointer-events-none" />
             <div className="absolute w-[260px] h-[260px] sm:w-[500px] sm:h-[500px] border border-white/5 rounded-full pointer-events-none opacity-50" />
 
             {/* 3D Container viewport */}
             <div className="relative w-[150px] h-[190px] xs:w-[170px] xs:h-[210px] sm:w-[280px] sm:h-[360px] bg-[#16120e] rounded-2xl border-4 border-[#2b211a] shadow-2xl overflow-visible flex items-center justify-center perspective-[1200px]">
-              
+
               {/* Internal Cabinet Wall (Revealed when door swings open) */}
               <div className="absolute inset-0 bg-[#241c15] rounded-xl overflow-hidden z-0">
                 {/* Wood Grain Vector texture overlay */}
                 <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.12)_1px,transparent_1px)] bg-[size:100%_10px] opacity-40" />
-                
+
                 {/* 3D Hinge Asset Mounted Inside */}
                 <motion.div
                   style={{ scale: hingeScale }}
@@ -182,7 +181,7 @@ export default function ScrollShowcase() {
                 >
                   <div className="absolute inset-0 bg-[radial-gradient(circle,rgba(199,139,43,0.22),transparent_70%)]" />
                   <Image
-                    src="/products/1/slimline-clip-showcase.png"
+                    src="/logo.png"
                     alt="Slimline Clip Hinge Mounted"
                     fill
                     className="object-contain filter drop-shadow-[0_12px_24px_rgba(0,0,0,0.5)]"

@@ -10,11 +10,11 @@ import { useRouter } from "next/navigation";
 
 const navLinks = [
   { name: "Home", href: "/" },
+  { name: "About Us", href: "/about" },
   { name: "Products", href: "/products" },
+  { name: "Contact", href: "/contact" },
   { name: "Solutions", href: "/solutions" },
   { name: "Inspiration", href: "/inspiration" },
-  { name: "About Us", href: "/about" },
-  { name: "Contact", href: "/contact" },
 ];
 
 const searchableProducts = [
@@ -75,20 +75,20 @@ export default function Navbar() {
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-350 bg-white/95 backdrop-blur-md border-b border-border-custom shadow-sm ${
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-350 bg-white/95 backdrop-blur-md border-b border-border-custom shadow-sm px-6 md:px-12 lg:px-24 ${
           scrolled ? "py-2 md:py-2.5" : "py-3 md:py-4"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="relative z-50 flex items-center">
-            <div className="relative h-10 w-40 md:h-12 md:w-48 transition-transform duration-300 hover:scale-103">
+            <div className="relative h-10 w-20 md:h-12 md:w-24 transition-transform duration-300 hover:scale-103">
               <Image
                 src="/narvo-transparent.png"
                 alt="NARVO Textile & Hardware"
                 fill
                 priority
-                className="object-contain"
+                className="object-contain object-left"
               />
             </div>
           </Link>

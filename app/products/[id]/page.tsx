@@ -89,11 +89,11 @@ export default async function ProductPage({ params }: PageProps) {
   }
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white px-6 md:px-12 lg:px-24">
       {/* Background Subtle grid lines */}
       <div className="absolute inset-0 grid-bg opacity-[0.03] pointer-events-none" />
       
-      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24 pt-32 pb-24 relative z-10">
+      <div className="max-w-7xl mx-auto pt-32 pb-24 relative z-10">
         {/* Breadcrumbs */}
         <div className="flex items-center gap-2.5 text-xs font-sans text-text-custom/50 mb-8">
           <Link href="/" className="hover:text-primary transition-colors">Home</Link>

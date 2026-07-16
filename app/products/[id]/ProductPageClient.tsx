@@ -150,11 +150,11 @@ export default function ProductPageClient({ product }: { product: Product }) {
               {product.name}
             </h1>
             <div className="flex items-center gap-3 mt-1">
-              <span className="text-2xl font-heading font-extrabold text-secondary">
-                {product.price}
+              <span className="text-sm font-sans font-bold bg-primary/10 text-primary px-3 py-1.5 rounded-full uppercase tracking-wider">
+                Price on Request
               </span>
-              <span className="text-[10px] font-sans font-bold bg-[#E8F8EE] text-[#25D366] px-2.5 py-1 rounded-full uppercase tracking-wider">
-                Wholesale Price
+              <span className="text-[10px] font-sans font-bold bg-secondary/5 text-secondary px-2.5 py-1 rounded-full uppercase tracking-wider">
+                B2B Only
               </span>
             </div>
           </div>

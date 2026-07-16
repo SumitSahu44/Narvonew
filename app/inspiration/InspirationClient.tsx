@@ -68,7 +68,7 @@ export default function InspirationClient() {
     : galleryItems.filter(item => item.category === activeFilter);
 
   return (
-    <div className="min-h-screen bg-lightgray pt-32 pb-24 relative overflow-hidden">
+    <div className="min-h-screen bg-lightgray pt-32 pb-24 relative overflow-hidden px-6 md:px-12 lg:px-24">
       {/* Background Subtle Accent Grid */}
       <div className="absolute inset-0 grid-bg opacity-[0.03] pointer-events-none" />
 
@@ -76,7 +76,7 @@ export default function InspirationClient() {
       <div className="absolute -left-20 -top-20 w-96 h-96 bg-primary/10 rounded-full blur-[100px] pointer-events-none" />
       <div className="absolute right-0 top-20 w-96 h-96 bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24 relative z-10">
+      <div className="max-w-7xl mx-auto relative z-10">
         
         {/* Breadcrumbs */}
         <div className="flex items-center gap-2.5 text-xs font-sans text-text-custom/50 mb-8">

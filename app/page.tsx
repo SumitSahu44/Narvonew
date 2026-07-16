@@ -1,26 +1,28 @@
 import Hero from "@/sections/Hero";
-import Categories from "@/sections/Categories";
+import About from "@/sections/About";
 import Products from "@/sections/Products";
+import Categories from "@/sections/Categories";
 import InteractiveShowcase from "@/sections/InteractiveShowcase";
 import WhyChoose from "@/sections/WhyChoose";
 import ScrollShowcase from "@/sections/ScrollShowcase";
 import Inspiration from "@/sections/Inspiration";
 import Process from "@/sections/Process";
-import Testimonials from "@/sections/Testimonials";
+// import Testimonials from "@/sections/Testimonials";
 import CtaBanner from "@/sections/CtaBanner";
 
 export default function Home() {
   return (
     <>
       <Hero />
-      <Categories />
+      <About />
       <Products />
+      <Categories />
       <InteractiveShowcase />
       <WhyChoose />
       <ScrollShowcase />
       <Inspiration />
       <Process />
-      <Testimonials />
+      {/* <Testimonials /> */}
       <CtaBanner />
     </>
   );
