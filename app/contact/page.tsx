@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { MapPin, Phone, Mail, Clock, Send, Sparkles } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
@@ -39,35 +40,45 @@ export default function ContactPage() {
       <div className="absolute inset-0 grid-bg opacity-[0.03] pointer-events-none" />
       
       {/* Top Banner space */}
-      <div className="relative pt-32 pb-16 px-6 md:px-12 lg:px-24 bg-gradient-to-b from-secondary/5 to-transparent overflow-hidden">
+      <div className="relative pt-32 pb-16 bg-gradient-to-b from-secondary/5 to-transparent overflow-hidden">
         {/* Luxury Glow Blurs */}
         <div className="absolute -left-20 -top-20 w-96 h-96 bg-primary/10 rounded-full blur-[100px] pointer-events-none" />
         <div className="absolute right-0 top-20 w-96 h-96 bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
 
-        <div className="max-w-7xl mx-auto text-center relative z-10 flex flex-col items-center gap-4">
-          <motion.span 
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-[10px] font-sans font-bold uppercase tracking-[0.3em] text-primary"
-          >
-            Get In Touch
-          </motion.span>
-          <motion.h1 
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="text-3xl sm:text-4xl md:text-5xl font-heading font-extrabold text-secondary tracking-tight"
-          >
-            Connect With Our Experts
-          </motion.h1>
-          <motion.p 
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="text-sm sm:text-base font-sans text-text-custom/60 max-w-2xl leading-relaxed"
-          >
-            Have a project in mind or need custom wholesale pricing? Fill out our form to coordinate directly with our team over WhatsApp.
-          </motion.p>
+        <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24 relative z-10">
+          {/* Breadcrumbs */}
+          <div className="flex items-center gap-2.5 text-xs font-sans text-text-custom/50 mb-8">
+            <Link href="/" className="hover:text-primary transition-colors font-medium">Home</Link>
+            <span>/</span>
+            <span className="text-secondary font-semibold">Contact</span>
+          </div>
+
+          {/* Heading */}
+          <div className="flex flex-col gap-3 max-w-2xl">
+            <motion.span 
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="text-[10px] font-sans font-bold uppercase tracking-[0.3em] text-primary"
+            >
+              Get In Touch
+            </motion.span>
+            <motion.h1 
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 }}
+              className="text-3xl sm:text-4xl md:text-5xl font-heading font-extrabold text-secondary tracking-tight"
+            >
+              Connect With Our Experts
+            </motion.h1>
+            <motion.p 
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+              className="text-sm sm:text-base font-sans text-text-custom/60 leading-relaxed max-w-2xl"
+            >
+              Have a project in mind or need custom wholesale pricing? Fill out our form to coordinate directly with our team over WhatsApp.
+            </motion.p>
+          </div>
         </div>
       </div>
 

@@ -147,7 +147,7 @@ export default function Categories() {
 
         {/* Bottom Trust Features Row */}
         <Reveal yOffset={30} delay={0.2}>
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 pt-12 border-t border-border-custom">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 pt-12 border-t border-border-custom">
             {features.map((feat) => {
               const Icon = feat.icon;
               return (

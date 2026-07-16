@@ -1,17 +1,36 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, MapPin, Leaf } from "lucide-react";
-import { motion } from "framer-motion";
+import { ArrowRight, MapPin, Leaf, Sparkles } from "lucide-react";
+import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import Reveal from "@/components/Reveal";
 import Magnetic from "@/components/Magnetic";
+import HardwareVisualizer3D from "@/components/HardwareVisualizer3D";
 
 export default function Hero() {
   const [treeCount, setTreeCount] = useState(90000185);
 
-  // Soft ticking counter to show active tracking
+  // Spring animations for high-performance mouse-tracking parallax
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+
+  const springX = useSpring(mouseX, { stiffness: 90, damping: 20 });
+  const springY = useSpring(mouseY, { stiffness: 90, damping: 20 });
+
+  // Mouse transforms using useTransform to avoid TypeErrors
+  const rotateX = useTransform(springY, (y) => y * 16);
+  const rotateY = useTransform(springX, (x) => x * 16);
+
+  const ambientX = useTransform(springX, (x) => x * 120);
+  const ambientY = useTransform(springY, (y) => y * 120);
+
+  const leftX = useTransform(springX, (x) => x * -20);
+  const leftY = useTransform(springY, (y) => y * -20);
+
+  const rightRotateX = useTransform(springY, (y) => y * -20);
+  const rightRotateY = useTransform(springX, (x) => x * 20);
+
   useEffect(() => {
     const interval = setInterval(() => {
       setTreeCount((prev) => prev + Math.floor(Math.random() * 2) + 1);
@@ -19,45 +38,80 @@ export default function Hero() {
     return () => clearInterval(interval);
   }, []);
 
-  // Format number to have spaced groups or individual digit styling
+  const handleMouseMove = (e: React.MouseEvent) => {
+    const { clientX, clientY } = e;
+    const { innerWidth, innerHeight } = window;
+    // Calculate values between -0.5 and 0.5
+    const x = (clientX / innerWidth) - 0.5;
+    const y = (clientY / innerHeight) - 0.5;
+    mouseX.set(x);
+    mouseY.set(y);
+  };
+
+  const handleMouseLeave = () => {
+    mouseX.set(0);
+    mouseY.set(0);
+  };
+
   const formattedCount = treeCount.toString();
 
   return (
-    <section className="relative min-h-screen w-full flex items-center justify-between bg-secondary overflow-hidden pt-28 pb-20 px-6 md:px-12 lg:px-24">
-      {/* Background Image with Overlay */}
-      <div className="absolute inset-0 z-0">
-        <Image
-          src="/hero_interior.png"
-          alt="Luxury Modern Interior"
-          fill
-          priority
-          className="object-cover object-center brightness-90 transform scale-105 animate-[zoom-out_20s_ease-out_infinite]"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent z-10" />
-        {/* Subtle grid mesh overlay */}
-        <div className="absolute inset-0 grid-bg opacity-15 z-10 pointer-events-none" />
-      </div>
+    <section
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      className="relative min-h-screen w-full flex items-center justify-between bg-[#080808] overflow-hidden pt-28 pb-20 px-6 md:px-12 lg:px-24 perspective-[1600px]"
+    >
+      {/* 3D Grid mesh overlay reacting to mouse movement */}
+      <motion.div
+        style={{
+          rotateX,
+          rotateY,
+          translateZ: -80,
+        }}
+        className="absolute inset-0 z-0 grid-bg opacity-[0.15] pointer-events-none transform scale-110"
+      />
+
+      {/* Luxury lighting glows */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(199,139,43,0.05)_0%,transparent_60%)] pointer-events-none z-0" />
+      <div className="absolute -top-40 -left-40 w-96 h-96 bg-primary/5 rounded-full blur-[100px] pointer-events-none" />
+
+      {/* Floating ambient lighting bubble following the mouse spring */}
+      <motion.div
+        style={{
+          x: ambientX,
+          y: ambientY,
+        }}
+        className="absolute top-[20%] left-[55%] w-[480px] h-[480px] bg-[radial-gradient(circle,rgba(199,139,43,0.08),transparent_65%)] rounded-full blur-3xl pointer-events-none z-0"
+      />
 
       {/* Hero Content Wrapper */}
       <div className="relative z-20 max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-8 items-center">
-        {/* Left Typography Block */}
-        <div className="lg:col-span-7 flex flex-col items-start text-white">
+        
+        {/* Left Column: Typography Block with Parallax offset */}
+        <motion.div
+          style={{
+            x: leftX,
+            y: leftY,
+          }}
+          className="lg:col-span-7 flex flex-col items-start text-white"
+        >
           <Reveal yOffset={25} delay={0.2} blur>
-            <span className="text-[11px] md:text-xs font-sans font-bold uppercase tracking-[0.3em] text-primary mb-5 inline-block">
-              Textile & Hardware
+            <span className="text-[11px] md:text-xs font-sans font-bold uppercase tracking-[0.3em] text-primary mb-5 flex items-center gap-2">
+              <Sparkles className="w-3.5 h-3.5 text-primary animate-pulse" />
+              NARVO TEXTILE & HARDWARE
             </span>
           </Reveal>
 
           <Reveal yOffset={35} delay={0.35} blur>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[68px] leading-[1.1] font-heading font-extrabold tracking-tight mb-6">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[72px] leading-[1.08] font-heading font-extrabold tracking-tight mb-6">
               Designed for <br />
-              Every <span className="text-primary italic font-serif font-light">Detail.</span>
+              Every <span className="bg-gradient-to-r from-primary via-[#ffd58c] to-primary bg-clip-text text-transparent italic font-serif font-light">Detail.</span>
             </h1>
           </Reveal>
 
           <Reveal yOffset={30} delay={0.5} blur>
             <p className="text-base sm:text-lg text-white/70 max-w-lg leading-relaxed font-sans mb-10">
-              Elevate your interiors with our handcrafted range of luxury textiles, premium plywood, designer doors, and smart hardware solutions.
+              Elevate your spaces with our handcrafted collection of luxury door handles, smart biometrics locks, silent cabinet fittings, and premium textiles.
             </p>
           </Reveal>
 
@@ -94,22 +148,40 @@ export default function Hero() {
             </span>
             <span>03</span>
           </div>
-        </div>
+        </motion.div>
 
-        {/* Right Floating Eco-Widget Block */}
-        <div className="lg:col-span-5 flex justify-center lg:justify-end">
-          <Reveal yOffset={40} delay={0.8} scale={0.9} rotate={-1}>
-            <div className="glass-panel-dark p-8 rounded-[28px] max-w-[380px] w-full border border-white/10 shadow-2xl flex flex-col relative overflow-hidden group">
-              {/* Background gradient radial glow */}
-              <div className="absolute -top-12 -right-12 w-28 h-28 bg-primary/20 rounded-full blur-2xl group-hover:bg-primary/30 transition-all duration-700" />
+        {/* Right Column: 3D Studio Stage with Parallax tilt */}
+        <motion.div
+          style={{
+            rotateX: rightRotateX,
+            rotateY: rightRotateY,
+            z: 50,
+          }}
+          className="lg:col-span-5 flex flex-col gap-6 items-center lg:items-end justify-center w-full transform-style-3d preserve-3d"
+        >
+          {/* Glassmorphic Showcase Stage Ring */}
+          <div className="relative w-[320px] xs:w-[350px] sm:w-[380px] h-[340px] sm:h-[380px] flex items-center justify-center rounded-[32px] overflow-visible bg-gradient-to-tr from-white/[0.01] to-white/[0.03] p-1 border border-white/5 shadow-2xl preserve-3d group">
+            {/* Shimmering rim reflection */}
+            <div className="absolute inset-0 rounded-[32px] bg-[linear-gradient(135deg,rgba(255,255,255,0.04),transparent_60%)] pointer-events-none" />
+            
+            {/* Glow spotlight behind Visualizer */}
+            <div className="absolute top-[25%] left-[25%] right-[25%] bottom-[25%] rounded-full bg-primary/10 blur-3xl pointer-events-none" />
+            
+            <HardwareVisualizer3D />
+          </div>
+
+          {/* Compact Ticking Eco Counter widget */}
+          <Reveal yOffset={30} delay={0.9}>
+            <div className="glass-panel-dark p-4 rounded-[20px] max-w-[380px] w-[320px] xs:w-[350px] sm:w-[380px] border border-white/10 shadow-lg flex flex-col relative overflow-hidden group">
+              <div className="absolute -top-12 -right-12 w-20 h-20 bg-primary/10 rounded-full blur-xl group-hover:bg-primary/20 transition-all duration-700" />
               
-              <div className="flex items-center gap-3 text-[10px] font-sans font-bold uppercase tracking-widest text-white/50 mb-6">
-                <Leaf className="w-4 h-4 text-primary animate-pulse" />
+              <div className="flex items-center gap-2 text-[9px] font-sans font-bold uppercase tracking-widest text-white/50 mb-3">
+                <Leaf className="w-3.5 h-3.5 text-primary animate-pulse" />
                 <span>Trees Planted Till Date</span>
               </div>
 
               {/* Ticking number widget */}
-              <div className="flex items-center gap-1.5 mb-6">
+              <div className="flex flex-wrap xs:flex-nowrap items-center justify-center xs:justify-start gap-1 mb-3">
                 {formattedCount.split("").map((digit, index) => {
                   const isHighlight = index >= formattedCount.length - 3;
                   return (
@@ -118,9 +190,9 @@ export default function Hero() {
                       initial={{ y: 10, opacity: 0 }}
                       animate={{ y: 0, opacity: 1 }}
                       transition={{ type: "spring", stiffness: 200, delay: index * 0.03 }}
-                      className={`text-2xl sm:text-3xl font-heading font-extrabold px-2 py-1.5 rounded-md ${
-                        isHighlight 
-                          ? "bg-primary text-white" 
+                      className={`text-sm xs:text-base font-heading font-extrabold px-1.5 py-1 rounded-md ${
+                        isHighlight
+                          ? "bg-primary text-white"
                           : "bg-white/5 text-white/95 border border-white/5"
                       }`}
                     >
@@ -130,14 +202,9 @@ export default function Hero() {
                 })}
               </div>
 
-              <div className="flex items-center justify-between text-xs font-sans font-bold tracking-widest text-white/40 mb-4">
-                <span>11 JULY</span>
-                <span className="text-white/60">2026</span>
-              </div>
-
               {/* Progress Slider */}
-              <div className="w-full h-2.5 bg-white/10 rounded-full overflow-hidden mb-6 relative">
-                <motion.div 
+              <div className="w-full h-1.5 bg-white/10 rounded-full overflow-hidden mb-2 relative">
+                <motion.div
                   initial={{ width: "0%" }}
                   whileInView={{ width: "75%" }}
                   viewport={{ once: true }}
@@ -146,12 +213,13 @@ export default function Hero() {
                 />
               </div>
 
-              <p className="text-[12px] text-white/60 font-sans leading-relaxed flex items-start gap-2">
-                <span>Join us in building a greener tomorrow. Every hardware purchase helps restore forests.</span>
+              <p className="text-[10px] text-white/40 font-sans leading-relaxed">
+                Every hardware purchase helps restore forests.
               </p>
             </div>
           </Reveal>
-        </div>
+        </motion.div>
+
       </div>
     </section>
   );

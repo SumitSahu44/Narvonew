@@ -94,16 +94,16 @@ export default function ScrollShowcase() {
   return (
     <div ref={containerRef} className="relative h-[320vh] bg-[#111111] overflow-visible">
       {/* Sticky viewport content box */}
-      <div className="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden px-6 md:px-12 lg:px-24 pt-[85px] lg:pt-0 pb-4 lg:pb-0">
+      <div className="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden px-6 md:px-12 lg:px-24 pt-[70px] lg:pt-0 pb-4 lg:pb-0">
         
         {/* Background grids */}
         <div className="absolute inset-0 grid-bg opacity-10 pointer-events-none" />
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[300px] sm:w-[600px] h-[300px] sm:h-[600px] bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
 
-        <div className="max-w-7xl mx-auto w-full h-[calc(100vh-100px)] lg:h-auto flex flex-col lg:flex-row items-center justify-evenly lg:justify-between gap-2 lg:gap-8 z-10 relative">
+        <div className="max-w-7xl mx-auto w-full h-[calc(100vh-110px)] lg:h-auto flex flex-col lg:flex-row items-center justify-center lg:justify-between gap-4 lg:gap-8 z-10 relative">
           
           {/* LEFT SIDE: Dynamic Text Overlays (Preventing Overlaps) */}
-          <div className="w-full lg:w-[45%] flex flex-col justify-center h-[130px] sm:h-[180px] lg:h-[400px] relative z-20">
+          <div className="w-full lg:w-[45%] flex flex-col justify-center h-auto min-h-[110px] sm:min-h-[150px] lg:h-[400px] relative z-20">
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeSlide}
@@ -111,18 +111,18 @@ export default function ScrollShowcase() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -15 }}
                 transition={{ duration: 0.35, ease: "easeOut" }}
-                className="flex flex-col items-start gap-3 sm:gap-4 text-white"
+                className="flex flex-col items-start gap-2.5 sm:gap-4 text-white"
               >
                 <span className="text-[10px] sm:text-xs font-sans font-bold uppercase tracking-[0.25em] text-primary flex items-center gap-2">
                   <ActiveIcon className="w-4 h-4 text-primary" />
                   {slides[activeSlide].tag}
                 </span>
                 
-                <h3 className="text-2xl sm:text-4xl lg:text-5xl font-heading font-extrabold tracking-tight leading-[1.15]">
+                <h3 className="text-xl xs:text-2xl sm:text-3xl lg:text-5xl font-heading font-extrabold tracking-tight leading-[1.15]">
                   {slides[activeSlide].title}
                 </h3>
                 
-                <p className="text-[10px] sm:text-xs lg:text-sm font-sans text-white/50 leading-relaxed max-w-md">
+                <p className="text-[11px] xs:text-xs lg:text-sm font-sans text-white/50 leading-relaxed max-w-md">
                   {slides[activeSlide].desc}
                 </p>
 
@@ -168,7 +168,7 @@ export default function ScrollShowcase() {
             <div className="absolute w-[260px] h-[260px] sm:w-[500px] sm:h-[500px] border border-white/5 rounded-full pointer-events-none opacity-50" />
 
             {/* 3D Container viewport */}
-            <div className="relative w-[170px] h-[210px] sm:w-[280px] sm:h-[360px] bg-[#16120e] rounded-2xl border-4 border-[#2b211a] shadow-2xl overflow-visible flex items-center justify-center perspective-[1200px]">
+            <div className="relative w-[150px] h-[190px] xs:w-[170px] xs:h-[210px] sm:w-[280px] sm:h-[360px] bg-[#16120e] rounded-2xl border-4 border-[#2b211a] shadow-2xl overflow-visible flex items-center justify-center perspective-[1200px]">
               
               {/* Internal Cabinet Wall (Revealed when door swings open) */}
               <div className="absolute inset-0 bg-[#241c15] rounded-xl overflow-hidden z-0">

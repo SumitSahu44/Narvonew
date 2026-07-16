@@ -48,12 +48,12 @@ export default function SolutionsClient() {
       <div className="absolute inset-0 grid-bg opacity-[0.03] pointer-events-none" />
 
       {/* Top Banner Space */}
-      <div className="relative pt-32 pb-20 px-6 md:px-12 lg:px-24 bg-gradient-to-b from-secondary/5 to-transparent overflow-hidden">
+      <div className="relative pt-32 pb-20 bg-gradient-to-b from-secondary/5 to-transparent overflow-hidden">
         {/* Luxury Glow Blurs */}
         <div className="absolute -left-20 -top-20 w-96 h-96 bg-primary/10 rounded-full blur-[100px] pointer-events-none" />
         <div className="absolute right-0 top-20 w-96 h-96 bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
 
-        <div className="max-w-7xl mx-auto relative z-10">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24 relative z-10">
           {/* Breadcrumbs */}
           <div className="flex items-center gap-2.5 text-xs font-sans text-text-custom/50 mb-8">
             <Link href="/" className="hover:text-primary transition-colors font-medium">Home</Link>
@@ -62,7 +62,7 @@ export default function SolutionsClient() {
           </div>
 
           {/* Heading */}
-          <div className="flex flex-col gap-4 max-w-3xl">
+          <div className="flex flex-col gap-3 max-w-3xl">
             <motion.span 
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}

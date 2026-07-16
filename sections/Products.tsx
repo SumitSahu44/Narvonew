@@ -59,7 +59,7 @@ const productsData: Product[] = [
   }
 ];
 
-export default function Products() {
+export default function Products({ isSubPage = false }: { isSubPage?: boolean }) {
   // Track active image index for each product
   const [activeImages, setActiveImages] = useState<{ [key: string]: number }>({
     "slimline-hinge": 0,
@@ -76,27 +76,31 @@ export default function Products() {
   };
 
   return (
-    <section id="products" className="relative py-24 bg-lightgray overflow-hidden px-6 md:px-12 lg:px-24">
+    <section id="products" className={`relative ${isSubPage ? "pb-24 pt-0" : "py-24"} bg-lightgray overflow-hidden px-6 md:px-12 lg:px-24`}>
       {/* Background Section Index "02" */}
-      <div className="absolute left-6 top-10 text-[12rem] md:text-[16rem] font-heading font-extrabold text-[#ECECEC]/50 select-none pointer-events-none leading-none z-0">
-        02
-      </div>
+      {!isSubPage && (
+        <div className="absolute left-6 top-10 text-[12rem] md:text-[16rem] font-heading font-extrabold text-[#ECECEC]/50 select-none pointer-events-none leading-none z-0">
+          02
+        </div>
+      )}
 
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Header Block */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
-          <div className="flex flex-col">
-            <span className="text-xs font-sans font-bold uppercase tracking-widest text-primary mb-2.5 inline-block">
-              Catalogue
-            </span>
-            <h2 className="text-3xl md:text-5xl font-heading font-extrabold text-secondary tracking-tight">
-              Premium Collections
-            </h2>
-            <p className="text-sm md:text-base text-text-custom/60 mt-3 font-sans">
-              High-performance, durable, and architecturally certified solutions.
-            </p>
+        {!isSubPage && (
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+            <div className="flex flex-col">
+              <span className="text-xs font-sans font-bold uppercase tracking-widest text-primary mb-2.5 inline-block">
+                Catalogue
+              </span>
+              <h2 className="text-3xl md:text-5xl font-heading font-extrabold text-secondary tracking-tight">
+                Premium Collections
+              </h2>
+              <p className="text-sm md:text-base text-text-custom/60 mt-3 font-sans">
+                High-performance, durable, and architecturally certified solutions.
+              </p>
+            </div>
           </div>
-        </div>
+        )}
 
         {/* 2-Column Product Grid */}
         <RevealStagger delay={0.1} staggerChildren={0.2}>
@@ -196,7 +200,7 @@ export default function Products() {
                     </div>
 
                     {/* Action CTAs */}
-                    <div className="grid grid-cols-2 gap-4 border-t border-border-custom pt-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 border-t border-border-custom pt-6">
                       <Link
                         href={`/products/${product.id}`}
                         className="group py-3.5 border border-secondary hover:border-primary hover:bg-primary/5 text-secondary hover:text-primary text-xs font-sans font-bold tracking-widest rounded-xl transition-all duration-300 flex items-center justify-center gap-2 active:scale-95 text-center"

@@ -95,7 +95,7 @@ export default async function ProductPage({ params }: PageProps) {
       
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24 pt-32 pb-24 relative z-10">
         {/* Breadcrumbs */}
-        <div className="flex items-center gap-2.5 text-xs font-sans text-text-custom/50 mb-10">
+        <div className="flex items-center gap-2.5 text-xs font-sans text-text-custom/50 mb-8">
           <Link href="/" className="hover:text-primary transition-colors">Home</Link>
           <span>/</span>
           <Link href="/products" className="hover:text-primary transition-colors">Products</Link>

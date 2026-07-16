@@ -75,13 +75,14 @@ export default function Navbar() {
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-350 bg-white/95 backdrop-blur-md border-b border-border-custom shadow-sm ${scrolled ? "py-3" : "py-4.5"
-          }`}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-350 bg-white/95 backdrop-blur-md border-b border-border-custom shadow-sm ${
+          scrolled ? "py-2 md:py-2.5" : "py-3 md:py-4"
+        }`}
       >
-        <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24 flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="relative z-50 flex items-center">
-            <div className="relative h-14 w-56 md:h-20 md:w-80 transition-transform duration-300 hover:scale-103">
+            <div className="relative h-10 w-40 md:h-12 md:w-48 transition-transform duration-300 hover:scale-103">
               <Image
                 src="/narvo-transparent.png"
                 alt="NARVO Textile & Hardware"
@@ -236,7 +237,7 @@ export default function Navbar() {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: "100%" }}
             transition={{ type: "tween", ease: [0.16, 1, 0.3, 1], duration: 0.5 }}
-            className="fixed inset-0 bg-white z-45 flex flex-col justify-between pt-32 pb-12 px-8 lg:hidden"
+            className="fixed inset-0 bg-white z-45 flex flex-col justify-between pt-24 pb-8 px-8 lg:hidden overflow-y-auto"
           >
             {/* Background glowing mesh */}
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(199,139,43,0.05),transparent_45%)] pointer-events-none" />
