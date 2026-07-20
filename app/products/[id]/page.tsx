@@ -60,6 +60,12 @@ const productsData: Product[] = [
   }
 ];
 
+export async function generateStaticParams() {
+  return productsData.map((product) => ({
+    id: product.id,
+  }));
+}
+
 interface PageProps {
   params: Promise<{ id: string }>;
 }
