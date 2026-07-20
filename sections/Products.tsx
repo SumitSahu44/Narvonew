@@ -26,9 +26,9 @@ const productsData: Product[] = [
     category: "Cabinet Hardware",
     description: "Premium B2B wholesale soft-closing hydraulic hinges designed specifically for luxury cabinet doors. Features an advanced hydraulic mechanism for smooth closing, a 4-hole mounting pattern for maximum stability, and a 15-degree adjustment angle.",
     images: [
-      "/products/1/slimline-clip-showcase.png",
-      "/products/1/slimline-clip-showcase2.png",
-      "/products/1/slimline-clip-whiteg.png",
+      "/products/1/slimline-clip-showcase1.png",
+      "/products/1/slimline-clip-showcase3.png",
+      "/products/1/slimline-clip-white.png",
     ],
     specs: {
       "Suitable Door": "Cabinet Door",
@@ -122,7 +122,7 @@ export default function Products({ isSubPage = false }: { isSubPage?: boolean })
                   <div className="relative h-[300px] sm:h-[350px] bg-secondary flex items-center justify-center p-6 overflow-hidden">
                     {/* Background Soft Mesh */}
                     <div className="absolute inset-0 grid-bg opacity-[0.03] pointer-events-none" />
-                    
+
                     <div className="relative w-full h-full">
                       <Image
                         src={activeImageSrc}
@@ -144,11 +144,10 @@ export default function Products({ isSubPage = false }: { isSubPage?: boolean })
                         <button
                           key={imgIdx}
                           onClick={() => handleImageChange(product.id, imgIdx)}
-                          className={`w-6 h-6 rounded-full border relative overflow-hidden transition-all duration-300 ${
-                            activeIndex === imgIdx
-                              ? "border-primary scale-110"
-                              : "border-white/20 hover:border-white/60"
-                          }`}
+                          className={`w-6 h-6 rounded-full border relative overflow-hidden transition-all duration-300 ${activeIndex === imgIdx
+                            ? "border-primary scale-110"
+                            : "border-white/20 hover:border-white/60"
+                            }`}
                         >
                           <Image
                             src={img}
@@ -170,7 +169,7 @@ export default function Products({ isSubPage = false }: { isSubPage?: boolean })
                           {product.name}
                         </h3>
                       </div>
-                      
+
                       <div className="flex items-center gap-3">
                         <span className="text-sm font-sans font-bold bg-primary/10 text-primary px-3 py-1.5 rounded-full uppercase tracking-wider">
                           Price on Request

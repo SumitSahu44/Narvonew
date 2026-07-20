@@ -25,9 +25,9 @@ const productsData: Product[] = [
     category: "Cabinet Hardware",
     description: "Premium B2B wholesale soft-closing hydraulic hinges designed specifically for luxury cabinet doors. Features an advanced hydraulic mechanism for smooth closing, a 4-hole mounting pattern for maximum stability, and a 15-degree adjustment angle.",
     images: [
-      "/products/1/slimline-clip-showcase.png",
-      "/products/1/slimline-clip-showcase2.png",
-      "/products/1/slimline-clip-whiteg.png",
+      "/products/1/slimline-clip-showcase1.png",
+      "/products/1/slimline-clip-showcase3.png",
+      "/products/1/slimline-clip-white.png",
     ],
     specs: {
       "Suitable Door": "Cabinet Door",

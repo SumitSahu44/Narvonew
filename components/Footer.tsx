@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowUpRight, ArrowUp, MapPin, Phone } from "lucide-react";
-import { FaFacebookF, FaInstagram, FaLinkedinIn, FaYoutube } from "react-icons/fa";
+import { FaFacebookF, FaInstagram } from "react-icons/fa";
 import Magnetic from "./Magnetic";
 
 const footerLinks = {
@@ -22,10 +22,8 @@ const footerLinks = {
 };
 
 const socialLinks = [
-  { icon: FaFacebookF, href: "https://facebook.com", label: "Facebook" },
-  { icon: FaInstagram, href: "https://instagram.com", label: "Instagram" },
-  { icon: FaLinkedinIn, href: "https://linkedin.com", label: "LinkedIn" },
-  { icon: FaYoutube, href: "https://youtube.com", label: "YouTube" },
+  { icon: FaFacebookF, href: "https://www.facebook.com/share/194dxQbh2o/", label: "Facebook" },
+  { icon: FaInstagram, href: "https://www.instagram.com/narvo_hardwares", label: "Instagram" },
 ];
 
 export default function Footer() {

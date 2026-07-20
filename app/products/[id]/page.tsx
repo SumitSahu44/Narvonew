@@ -22,9 +22,9 @@ const productsData: Product[] = [
     category: "Cabinet Hardware",
     description: "Premium B2B wholesale soft-closing hydraulic hinges designed specifically for luxury cabinet doors. Features an advanced hydraulic mechanism for smooth closing, a 4-hole mounting pattern for maximum stability, and a 15-degree adjustment angle.",
     images: [
-      "/products/1/slimline-clip-showcase.png",
-      "/products/1/slimline-clip-showcase2.png",
-      "/products/1/slimline-clip-whiteg.png",
+      "/products/1/slimline-clip-showcase1.png",
+      "/products/1/slimline-clip-showcase3.png",
+      "/products/1/slimline-clip-white.png",
     ],
     specs: {
       "Suitable Door": "Cabinet Door",
@@ -92,7 +92,7 @@ export default async function ProductPage({ params }: PageProps) {
     <div className="min-h-screen bg-white px-6 md:px-12 lg:px-24">
       {/* Background Subtle grid lines */}
       <div className="absolute inset-0 grid-bg opacity-[0.03] pointer-events-none" />
-      
+
       <div className="max-w-7xl mx-auto pt-32 pb-24 relative z-10">
         {/* Breadcrumbs */}
         <div className="flex items-center gap-2.5 text-xs font-sans text-text-custom/50 mb-8">

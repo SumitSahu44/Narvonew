@@ -81,7 +81,7 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="relative z-50 flex items-center">
-            <div className="relative h-10 w-20 md:h-12 md:w-24 transition-transform duration-300 hover:scale-103">
+            <div className="relative h-11 w-36 sm:h-12 sm:w-40 md:h-[52px] md:w-48 transition-transform duration-300 hover:scale-103">
               <Image
                 src="/narvo-transparent.png"
                 alt="NARVO Hardware"
