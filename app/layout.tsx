@@ -23,7 +23,12 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "NARVO Hardware | Luxury Architectural Interiors",
   description: "Premium architectural hardware, doors, plywood, and wood veneers. Redefining modern luxury spaces with handcrafted precision.",
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/logo-icon.png",
+  },
 };
+
 
 export default function RootLayout({
   children,

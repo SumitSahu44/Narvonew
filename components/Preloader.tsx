@@ -77,10 +77,11 @@ export default function Preloader() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.2, duration: 0.6 }}
-              className="mt-4 text-xs sm:text-sm tracking-[0.3em] uppercase text-amber-200/60 font-light"
+              className="mt-4 text-xs sm:text-sm tracking-[0.35em] uppercase text-amber-200/70 font-light"
             >
-              Crafting Exceptional Hardware & Interiors
+              PREMIUM HARDWARE
             </motion.p>
+
           </div>
 
           {/* Bottom Progress Bar & Percentage */}
