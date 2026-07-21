@@ -1,15 +1,27 @@
 "use client";
 
+import { useEffect, useRef } from "react";
+
 export default function Hero() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.play().catch((err) => {
+        console.log("Autoplay was prevented:", err);
+      });
+    }
+  }, []);
+
   return (
     <section className="relative h-screen w-full bg-[#080808] overflow-hidden">
       <video
+        ref={videoRef}
         autoPlay
         loop
         muted
         playsInline
-        preload="metadata"
-        poster="/hero_interior.png"
+        preload="auto"
         className="w-full h-full object-cover"
       >
         <source src="/videos/hero.mp4" type="video/mp4" />
@@ -20,4 +32,5 @@ export default function Hero() {
     </section>
   );
 }
+
 

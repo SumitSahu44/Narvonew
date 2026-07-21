@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import SmoothScroll from "@/components/SmoothScroll";
 import CustomCursor from "@/components/CustomCursor";
 import Chatbot from "@/components/Chatbot";
+import Preloader from "@/components/Preloader";
 
 const plusJakarta = Plus_Jakarta_Sans({
   variable: "--font-plus-jakarta",
@@ -32,6 +33,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${plusJakarta.variable} ${inter.variable}`}>
       <body className="antialiased font-sans bg-white text-[#222222]">
+        {/* Luxury Preloader */}
+        <Preloader />
+
         {/* Grain/Noise texture overlay */}
         <div className="noise-bg" />
         
@@ -49,3 +53,4 @@ export default function RootLayout({
     </html>
   );
 }
+
